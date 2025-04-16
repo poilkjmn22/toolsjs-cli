@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1744631206315" clover="3.2.0">
+  <project timestamp="1744631206315" name="All files">
+    <metrics statements="47" coveredstatements="39" conditionals="29" coveredconditionals="23" methods="13" coveredmethods="9" elements="89" coveredelements="71" complexity="0" loc="47" ncloc="47" packages="1" files="2" classes="2"/>
+    <file name="index.ts" path="D:\Learn\WebDev\tools-cli\packages\utils\src\index.ts">
+      <metrics statements="13" coveredstatements="13" conditionals="6" coveredconditionals="5" methods="5" coveredmethods="4"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="4" type="cond" truecount="3" falsecount="0"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="18" count="3" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+    </file>
+    <file name="traverseFiles.ts" path="D:\Learn\WebDev\tools-cli\packages\utils\src\traverseFiles.ts">
+      <metrics statements="34" coveredstatements="26" conditionals="23" coveredconditionals="18" methods="8" coveredmethods="5"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="15" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="32" count="8" type="cond" truecount="1" falsecount="0"/>
+      <line num="33" count="7" type="stmt"/>
+      <line num="36" count="1" type="cond" truecount="0" falsecount="1"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="40" count="1" type="cond" truecount="3" falsecount="0"/>
+      <line num="41" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="47" count="2" type="stmt"/>
+      <line num="53" count="4" type="stmt"/>
+      <line num="54" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="55" count="4" type="stmt"/>
+      <line num="56" count="4" type="stmt"/>
+      <line num="58" count="4" type="stmt"/>
+      <line num="60" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="61" count="1" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="64" count="1" type="stmt"/>
+      <line num="65" count="2" type="stmt"/>
+      <line num="66" count="2" type="stmt"/>
+      <line num="68" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="69" count="3" type="cond" truecount="3" falsecount="2"/>
+      <line num="70" count="3" type="cond" truecount="2" falsecount="1"/>
+      <line num="71" count="3" type="stmt"/>
+      <line num="74" count="0" type="stmt"/>
+      <line num="75" count="0" type="stmt"/>
+      <line num="79" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>

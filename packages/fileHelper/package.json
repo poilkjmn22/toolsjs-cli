@@ -1,0 +1,73 @@
+{
+  "name": "@toolsjs-cli/file-helper",
+  "version": "1.0.5",
+  "description": "文件处理工具集，支持文件批量操作、服务器部署等功能",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "file-helper": "./bin/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "start": "node ./bin/cli.js",
+    "test": "jest",
+    "test:clear": "jest --clearCache",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@toolsjs-cli/utils": "^1.0.7",
+    "archiver": "^5.3.1",
+    "chalk": "^4.1.2",
+    "commander": "^9.4.0",
+    "fs-extra": "^11.1.1",
+    "minimatch": "^5.1.0",
+    "p-limit": "^3.1.0",
+    "ssh2": "^1.14.0"
+  },
+  "devDependencies": {
+    "@types/archiver": "^5.3.2",
+    "@types/fs-extra": "^11.0.1",
+    "@types/jest": "^29.5.3",
+    "@types/minimatch": "^5.1.2",
+    "@types/node": "^20.4.5",
+    "@types/ora": "^3.2.0",
+    "@types/ssh2": "^1.11.13",
+    "jest": "^29.6.2",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/toolsjs-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/toolsjs-cli/issues"
+  },
+  "homepage": "https://github.com/yourusername/toolsjs-cli#readme",
+  "keywords": [
+    "cli",
+    "file",
+    "tools",
+    "deploy",
+    "ssh",
+    "sftp",
+    "file-management",
+    "automation"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

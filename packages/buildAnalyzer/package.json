@@ -1,0 +1,83 @@
+{
+  "name": "@toolsjs-cli/build-analyzer",
+  "version": "1.0.0",
+  "description": "构建分析工具，支持增量构建分析、大小分析等功能",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "build-analyzer": "./bin/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.ts"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@toolsjs-cli/utils": "^1.0.7",
+    "archiver": "^5.3.1",
+    "chalk": "^4.1.2",
+    "commander": "^9.4.0",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "@types/archiver": "^5.3.2",
+    "@types/fs-extra": "^11.0.1",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.5",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.45.0",
+    "jest": "^29.6.2",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "build",
+    "analyzer",
+    "deployment",
+    "optimization",
+    "增量构建",
+    "构建分析",
+    "部署工具"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/tools-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/tools-cli/issues"
+  },
+  "homepage": "https://github.com/yourusername/tools-cli#readme",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/__tests__/**/*.test.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ]
+  }
+}

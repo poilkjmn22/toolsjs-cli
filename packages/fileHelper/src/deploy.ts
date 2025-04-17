@@ -441,7 +441,7 @@ async function getDiffFilePath(fallback: string): Promise<string> {
   try {
     const bacfgCont = await readFile(path.join(process.cwd(), "buildAnalyzer.config.json"), 'utf-8');
     const bacfg = JSON.parse(bacfgCont);
-    const diffFilePath = path.join(bacfg.reportDir, `${path.basename(bacfg.buildDir)}.zip`);
+    const diffFilePath = path.join(bacfg.reportDir, `${path.basename(path.join(process.cwd(), bacfg.buildDir))}.zip`);
     console.warn(`发现差异部署文件，将使用${diffFilePath}部署`);
     return diffFilePath;
   } catch (error) {
@@ -490,7 +490,7 @@ export async function deploy(options: Partial<DeployConfig> = {}): Promise<void>
 
     if (!shouldCompress && /\.zip$/.test(localPath)) {
       spinner.start('解压文件中...');
-      await client.execCommand(`cd ${path.posix.dirname(config.remotePath)} && unzip -o ${config.remotePath} -d ${path.posix.basename(config.remotePath, path.extname(localPath))}`);
+      await client.execCommand(`cd ${path.posix.dirname(config.remotePath)} && unzip -o ${path.posix.basename(config.remotePath)}`);
       spinner.succeed('解压完成');
     }
 

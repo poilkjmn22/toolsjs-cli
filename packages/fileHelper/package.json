@@ -1,6 +1,6 @@
 {
   "name": "@toolsjs-cli/file-helper",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "文件处理工具集，支持文件批量操作、服务器部署等功能",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

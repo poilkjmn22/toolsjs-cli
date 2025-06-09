@@ -434,7 +434,7 @@ class ScpClient {
   }
   async preDeployAutoBackup(remotePath: string): Promise<void> {
     try {
-      await this.execCommand(`mv ${remotePath} ${remotePath}_bak${new Date().toLocaleString()}`);
+      await this.execCommand(`mv ${remotePath} ${remotePath}_bak${new Date().toLocaleString().replace(/[\s/]/g, '-')}`);
       this.spinner.succeed(`服务器备份部署目录<${remotePath}>成功`);
     } catch (error) {
       this.spinner.fail(`服务器备份部署目录<${remotePath}>失败`);

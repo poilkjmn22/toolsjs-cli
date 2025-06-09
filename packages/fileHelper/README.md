@@ -111,6 +111,7 @@ file-helper delete ./temp --dry-run
   "retryTimes": 3,
   "retryDelay": 1000,
   "preScript": "pm2 stop app",
+  "autoBackup": true,
   "postScript": "pm2 start app"
   "diffUpload": "false"
 }
@@ -130,6 +131,7 @@ await deploy({
   localPath: './dist',
   remotePath: '/var/www/app',
   compress: true,
+  autoBackup: true,
   exclude: ['node_modules', '*.log']
 });
 
@@ -164,7 +166,8 @@ interface DeployConfig {
   remotePath: string;    // 远程目标目录
   exclude?: string[];    // 排除的文件
   preScript?: string;    // 部署前执行的脚本
-  postScript?: string;   // 部署后执行的脚本
+  autoBackup?: boolean;    // 部署前执行的脚本
+  postScript?: string;   // 部署后执行自动备份服务器目录的脚本
   retryTimes?: number;   // 重试次数
   retryDelay?: number;   // 重试延迟(ms)
   compress?: boolean;    // 是否压缩上传

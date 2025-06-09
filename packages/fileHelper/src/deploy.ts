@@ -18,6 +18,7 @@ interface DeployConfig {
   exclude?: string[];
   postScript?: string;
   preScript?: string;
+  autoBackup?: boolean; // 部署之前执行备份
   retryTimes?: number; // 连接服务器重试次数
   retryDelay?: number; // 连接服务器超时时间
   compress?: boolean; // 压缩后再上传
@@ -431,6 +432,16 @@ class ScpClient {
     }
 
   }
+  async preDeployAutoBackup(remotePath: string): Promise<void> {
+    try {
+      await this.execCommand(`mv ${remotePath} ${remotePath}_bak${new Date().toLocaleString()}`);
+      this.spinner.succeed(`服务器备份部署目录<${remotePath}>成功`);
+    } catch (error) {
+      this.spinner.fail(`服务器备份部署目录<${remotePath}>失败`);
+      throw error;
+    }
+
+  }
 
   close(): void {
     this.client.end();
@@ -467,6 +478,9 @@ export async function deploy(options: Partial<DeployConfig> = {}): Promise<void>
     await client.connect(config);
     spinner.succeed('连接成功');
 
+    if (config.autoBackup) {
+      await client.preDeployAutoBackup(config.remotePath);
+    }
     if (config.preScript) {
       await client.preDeploy(config.preScript);
     }

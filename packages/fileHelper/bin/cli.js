@@ -14,7 +14,7 @@ const handleError = (error) => {
 const formatResult = (result, type = 'move') => {
   const action = type === 'move' ? '移动' : '删除';
   const successKey = type === 'move' ? 'movedFiles' : 'deletedFiles';
-  
+
   console.log(`成功${action}: ${result[successKey].length} 个文件`);
   if (result.movedDirs?.length) {
     console.log(`成功移动目录: ${result.movedDirs.length} 个`);
@@ -71,8 +71,8 @@ program
     try {
       const sizeFilter = parseSizeFilter(opts.size);
       const fileParser = new RenameParser(opts.rename || '{name}{ext}');
-      const dirParser = opts.dirRename ? 
-        new RenameParser(opts.dirRename) : 
+      const dirParser = opts.dirRename ?
+        new RenameParser(opts.dirRename) :
         fileParser;
 
       const result = await batchMove(dir, {
@@ -86,10 +86,10 @@ program
         renameRule: (name) => fileParser.parse(name),
         dryRun: opts.dryRun,
         overwrite: opts.overwrite,
-        dirRenameRule: opts.dirRename ? 
+        dirRenameRule: opts.dirRename ?
           (name) => dirParser.parse(name) : undefined
       });
-      
+
       formatResult(result, 'move');
     } catch (error) {
       handleError(error);
@@ -156,8 +156,9 @@ program
   .option('-P, --password <password>', '密码')
   .option('-x, --exclude <files>', '排除文件,多个用逗号分隔')
   .option('-c, --config <path>', '配置文件路径')
-  .option('--backup-script <script>', '远程备份脚本')
-  .option('--deploy-script <script>', '远程部署脚本')
+  .option('--pre-script <script>', '部署之前服务器执行脚本')
+  .option('--auto-backup <script>', '远程备份脚本')
+  .option('--post-script <script>', '部署之后服务器执行脚本')
   .option('--diff-upload', '是否采用差异部署文件')
   .action(async (localPath, remotePath, opts) => {
     try {
@@ -171,6 +172,8 @@ program
         ...(opts.password && { password: opts.password }),
         ...(opts.exclude && { exclude: opts.exclude.split(',') }),
         ...(opts.postScript && { postScript: opts.postScript }),
+        ...(opts.autoBackup && { autoBackup: Boolean(opts.autoBackup) }),
+        ...(opts.compress && { compress: Boolean(opts.compress) }),
         ...(opts.preScript && { preScript: opts.preScript })
       });
     } catch (error) {
